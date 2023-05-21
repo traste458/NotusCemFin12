@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="urn:WS_MAESTRO_LPRECIOS_LGWsd/WS_MAESTRO_LPRECIOS_LGVi/document" xmlns:ns0="urn:WS_MAESTRO_LPRECIOS_LGVi" targetNamespace="urn:WS_MAESTRO_LPRECIOS_LGWsd/WS_MAESTRO_LPRECIOS_LGVi/document" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="urn:tables" elementFormDefault="qualified" targetNamespace="urn:tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="OutputLgMaestroLprecios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oLprecios" nillable="true" type="tns:ArrayOfZmmLgLprecios" />
+          <xs:element minOccurs="0" name="oMensajes" nillable="true" type="tns:ArrayOfBapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WsorWerk">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="werks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          <xs:element name="logMsgNo" type="xs:int" />
+          <xs:element minOccurs="0" name="logNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV4" nillable="true" type="xs:string" />
+          <xs:element name="number" type="xs:int" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgLprecios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="centro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaHoraModificacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoLista" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoModificacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="valorUnitario" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgLprecios">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgLprecios" nillable="true" type="tns:ZmmLgLprecios" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Bapiret1" nillable="true" type="tns:Bapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfWsorWerk">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="WsorWerk" nillable="true" type="tns:WsorWerk" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:s0="urn:tables" xmlns:tns="urn:WS_MAESTRO_LPRECIOS_LGVi" elementFormDefault="qualified" targetNamespace="urn:WS_MAESTRO_LPRECIOS_LGVi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:tables" />
+      <xs:element name="executeZmmLgMaestroLprecios">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="iFecha" nillable="true" type="xs:string" />
+            <xs:element name="iCentro" nillable="true" type="s0:ArrayOfWsorWerk" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeZmmLgMaestroLpreciosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" nillable="true" type="s0:OutputLgMaestroLprecios" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeZmmLgMaestroLpreciosIn_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgMaestroLprecios" />
+  </wsdl:message>
+  <wsdl:message name="executeZmmLgMaestroLpreciosOut_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgMaestroLpreciosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_MAESTRO_LPRECIOS_LGVi_Document">
+    <wsdl:operation name="executeZmmLgMaestroLprecios">
+      <wsdl:input message="tns:executeZmmLgMaestroLpreciosIn_doc" />
+      <wsdl:output message="tns:executeZmmLgMaestroLpreciosOut_doc" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://200.69.100.66:2130/EnviaWSLeEc/Service1.asmx?disco" filename="Service1.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://200.69.100.66/EnviaWSLeEc/Service1.asmx?wsdl" filename="Service1.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

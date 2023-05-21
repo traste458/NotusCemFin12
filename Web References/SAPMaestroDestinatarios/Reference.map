@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://172.22.85.60:50000/WS_MAESTRO_DESTINATARIO_LG/Config1/bindings?wsdl&amp;style=document" filename="bindings.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://172.22.85.60:50000/WS_MAESTRO_DESTINATARIO_LG/Config1?wsdl" filename="WS_MAESTRO_DESTINATARIO_LGWsd.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://172.22.85.60:50000/WS_MAESTRO_DESTINATARIO_LG/Config1/porttypes?wsdl&amp;style=document" filename="porttypes.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

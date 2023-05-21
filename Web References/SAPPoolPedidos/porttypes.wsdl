@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="urn:WS_PEDIDOS_LGWsd/WS_PEDIDOS_LGVi/document" xmlns:ns0="urn:WS_PEDIDOS_LGVi" targetNamespace="urn:WS_PEDIDOS_LGWsd/WS_PEDIDOS_LGVi/document" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="urn:tables" elementFormDefault="qualified" targetNamespace="urn:tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ZmmIntVstel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="vstel" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OutputLg">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oMensajes" nillable="true" type="tns:ArrayOfBapiret1" />
+          <xs:element minOccurs="0" name="oStockLote" nillable="true" type="tns:ArrayOfZmmLgStockLote" />
+          <xs:element minOccurs="0" name="rPedidosC" nillable="true" type="tns:ArrayOfZmmLgPedidosC" />
+          <xs:element minOccurs="0" name="rPedidosD" nillable="true" type="tns:ArrayOfZmmLgPedidosD" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgPedidosD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="almacenDest" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cantidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="centroDest" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pedido" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="posicion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="puestoExp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="unidadVenta" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgPedidosC">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codCliente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="disponibilidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="entrega" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaHora" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="observaciones" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ordenCompra" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pedido" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoPedido" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgStockLote">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="almacen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="centro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="stock" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          <xs:element name="logMsgNo" type="xs:int" />
+          <xs:element minOccurs="0" name="logNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV4" nillable="true" type="xs:string" />
+          <xs:element name="number" type="xs:int" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Bapiret1" nillable="true" type="tns:Bapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgStockLote">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgStockLote" nillable="true" type="tns:ZmmLgStockLote" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgPedidosC">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgPedidosC" nillable="true" type="tns:ZmmLgPedidosC" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgPedidosD">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgPedidosD" nillable="true" type="tns:ZmmLgPedidosD" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmIntVstel">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmIntVstel" nillable="true" type="tns:ZmmIntVstel" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:s0="urn:tables" xmlns:tns="urn:WS_PEDIDOS_LGVi" elementFormDefault="qualified" targetNamespace="urn:WS_PEDIDOS_LGVi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:tables" />
+      <xs:element name="executeZmmLgPoolPedidosEntregas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="iFechaCreacion" nillable="true" type="xs:string" />
+            <xs:element name="iPuestos" nillable="true" type="s0:ArrayOfZmmIntVstel" />
+            <xs:element name="iCreaEntregas" nillable="true" type="xs:string" />
+            <xs:element name="rPedidosC" nillable="true" type="s0:ArrayOfZmmLgPedidosC" />
+            <xs:element name="rPedidosD" nillable="true" type="s0:ArrayOfZmmLgPedidosD" />
+            <xs:element name="iPedido" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeZmmLgPoolPedidosEntregasResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" nillable="true" type="s0:OutputLg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeZmmLgPoolPedidosEntregasIn_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgPoolPedidosEntregas" />
+  </wsdl:message>
+  <wsdl:message name="executeZmmLgPoolPedidosEntregasOut_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgPoolPedidosEntregasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_PEDIDOS_LGVi_Document">
+    <wsdl:operation name="executeZmmLgPoolPedidosEntregas">
+      <wsdl:input message="tns:executeZmmLgPoolPedidosEntregasIn_doc" />
+      <wsdl:output message="tns:executeZmmLgPoolPedidosEntregasOut_doc" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

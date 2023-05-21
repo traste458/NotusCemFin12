@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="urn:WS_INVENTARIO_LGWsd/WS_INVENTARIO_LGVi/document" xmlns:ns0="urn:WS_INVENTARIO_LGVi" targetNamespace="urn:WS_INVENTARIO_LGWsd/WS_INVENTARIO_LGVi/document" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="urn:tables" elementFormDefault="qualified" targetNamespace="urn:tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="OutputInvLg">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oMateriales" nillable="true" type="tns:ArrayOfZmmLgInvStocks" />
+          <xs:element minOccurs="0" name="oMensajes" nillable="true" type="tns:ArrayOfBapiret1" />
+          <xs:element minOccurs="0" name="oSeriales" nillable="true" type="tns:ArrayOfZmmLgInvSeriales" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WsorWerk">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="werks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgInvSeriales">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="almacen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="centro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="declaracion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaMov" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="serial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="stockEspecial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoStock" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usuarioMov" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BdpisLgort">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lgort" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BdpisCharg">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="charg" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EkpoMatnr">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="matnr" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          <xs:element name="logMsgNo" type="xs:int" />
+          <xs:element minOccurs="0" name="logNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV4" nillable="true" type="xs:string" />
+          <xs:element name="number" type="xs:int" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgInvStocks">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="almacen" nillable="true" type="xs:string" />
+          <xs:element name="cantBloqueado" type="xs:double" />
+          <xs:element name="cantConcalidad" type="xs:double" />
+          <xs:element name="cantLibreutil" type="xs:double" />
+          <xs:element name="cantTotal" type="xs:double" />
+          <xs:element minOccurs="0" name="centro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lote" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoMaterial" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgInvStocks">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgInvStocks" nillable="true" type="tns:ZmmLgInvStocks" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Bapiret1" nillable="true" type="tns:Bapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgInvSeriales">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgInvSeriales" nillable="true" type="tns:ZmmLgInvSeriales" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfWsorWerk">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="WsorWerk" nillable="true" type="tns:WsorWerk" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfEkpoMatnr">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EkpoMatnr" nillable="true" type="tns:EkpoMatnr" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBdpisLgort">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BdpisLgort" nillable="true" type="tns:BdpisLgort" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBdpisCharg">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BdpisCharg" nillable="true" type="tns:BdpisCharg" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:s0="urn:tables" xmlns:tns="urn:WS_INVENTARIO_LGVi" elementFormDefault="qualified" targetNamespace="urn:WS_INVENTARIO_LGVi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:tables" />
+      <xs:element name="executeZmmLgInventario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="iWerks" nillable="true" type="s0:ArrayOfWsorWerk" />
+            <xs:element name="iMatnr" nillable="true" type="s0:ArrayOfEkpoMatnr" />
+            <xs:element name="iLgort" nillable="true" type="s0:ArrayOfBdpisLgort" />
+            <xs:element name="iCharg" nillable="true" type="s0:ArrayOfBdpisCharg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeZmmLgInventarioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" nillable="true" type="s0:OutputInvLg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeZmmLgInventarioIn_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgInventario" />
+  </wsdl:message>
+  <wsdl:message name="executeZmmLgInventarioOut_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgInventarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_INVENTARIO_LGVi_Document">
+    <wsdl:operation name="executeZmmLgInventario">
+      <wsdl:input message="tns:executeZmmLgInventarioIn_doc" />
+      <wsdl:output message="tns:executeZmmLgInventarioOut_doc" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

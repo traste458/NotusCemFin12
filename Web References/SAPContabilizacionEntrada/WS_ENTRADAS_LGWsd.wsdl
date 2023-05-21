@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:bns0="urn:WS_ENTRADAS_LGWsd/Config1/document" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="WS_ENTRADAS_LGWsd" targetNamespace="urn:WS_ENTRADAS_LGWsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="urn:WS_ENTRADAS_LGWsd/Config1/document" location="http://172.22.85.60:50000/WS_ENTRADAS_LG/Config1/bindings?wsdl&amp;style=document" />
+  <wsdl:types />
+  <wsdl:service name="WS_ENTRADAS_LG">
+    <wsdl:port name="Config1Port_Document" binding="bns0:Config1Binding">
+      <soap:address location="http://172.22.85.60:50000/WS_ENTRADAS_LG/Config1?style=document" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="urn:WS_MAESTRO_MATERIAL_LGWsd/WS_MAESTRO_MATERIAL_LGVi/document" xmlns:ns0="urn:WS_MAESTRO_MATERIAL_LGVi" targetNamespace="urn:WS_MAESTRO_MATERIAL_LGWsd/WS_MAESTRO_MATERIAL_LGVi/document" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="urn:tables" elementFormDefault="qualified" targetNamespace="urn:tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ZmmLgMaterial">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="clasificacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="codEan11" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaHoraModificacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoMaterial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoModificacion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OutputLgMaestroMaterial">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oMateriales" nillable="true" type="tns:ArrayOfZmmLgMaterial" />
+          <xs:element minOccurs="0" name="oMensajes" nillable="true" type="tns:ArrayOfBapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          <xs:element name="logMsgNo" type="xs:int" />
+          <xs:element minOccurs="0" name="logNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV4" nillable="true" type="xs:string" />
+          <xs:element name="number" type="xs:int" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgMaterial">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgMaterial" nillable="true" type="tns:ZmmLgMaterial" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Bapiret1" nillable="true" type="tns:Bapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:s0="urn:tables" xmlns:tns="urn:WS_MAESTRO_MATERIAL_LGVi" elementFormDefault="qualified" targetNamespace="urn:WS_MAESTRO_MATERIAL_LGVi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:tables" />
+      <xs:element name="executeZmmLgMaestroMaterial">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="iFechaCreacion" nillable="true" type="xs:string" />
+            <xs:element name="iFechaModificacion" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeZmmLgMaestroMaterialResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" nillable="true" type="s0:OutputLgMaestroMaterial" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeZmmLgMaestroMaterialIn_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgMaestroMaterial" />
+  </wsdl:message>
+  <wsdl:message name="executeZmmLgMaestroMaterialOut_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgMaestroMaterialResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_MAESTRO_MATERIAL_LGVi_Document">
+    <wsdl:operation name="executeZmmLgMaestroMaterial">
+      <wsdl:input message="tns:executeZmmLgMaestroMaterialIn_doc" />
+      <wsdl:output message="tns:executeZmmLgMaestroMaterialOut_doc" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

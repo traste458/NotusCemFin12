@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="urn:WS_INV_ENTREGA_LGWsd/WS_INV_ENTREGA_LGVi/document" xmlns:ns0="urn:WS_INV_ENTREGA_LGVi" targetNamespace="urn:WS_INV_ENTREGA_LGWsd/WS_INV_ENTREGA_LGVi/document" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="urn:tables" elementFormDefault="qualified" targetNamespace="urn:tables" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="OutputLgInvEntrega">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oEntregas" nillable="true" type="tns:ArrayOfZmmLgInvEntregas" />
+          <xs:element minOccurs="0" name="oMensajes" nillable="true" type="tns:ArrayOfBapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WsorWerk">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="werks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+          <xs:element name="logMsgNo" type="xs:int" />
+          <xs:element minOccurs="0" name="logNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="messageV4" nillable="true" type="xs:string" />
+          <xs:element name="number" type="xs:int" />
+          <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VbelnTab">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="vbeln" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZmmLgInvEntregas">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codDestinatario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="entrega" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaCrea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaEntrega" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaSalida" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="material" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nombreDeudor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="serial" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZmmLgInvEntregas">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZmmLgInvEntregas" nillable="true" type="tns:ZmmLgInvEntregas" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfBapiret1">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Bapiret1" nillable="true" type="tns:Bapiret1" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfVbelnTab">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="VbelnTab" nillable="true" type="tns:VbelnTab" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfWsorWerk">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="WsorWerk" nillable="true" type="tns:WsorWerk" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:s0="urn:tables" xmlns:tns="urn:WS_INV_ENTREGA_LGVi" elementFormDefault="qualified" targetNamespace="urn:WS_INV_ENTREGA_LGVi" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:tables" />
+      <xs:element name="executeZmmLgInventarioEntrega">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="iCentro" nillable="true" type="s0:ArrayOfWsorWerk" />
+            <xs:element name="iEntrega" nillable="true" type="s0:ArrayOfVbelnTab" />
+            <xs:element name="iFecha" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeZmmLgInventarioEntregaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Response" nillable="true" type="s0:OutputLgInvEntrega" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="executeZmmLgInventarioEntregaIn_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgInventarioEntrega" />
+  </wsdl:message>
+  <wsdl:message name="executeZmmLgInventarioEntregaOut_doc">
+    <wsdl:part name="parameters" element="ns0:executeZmmLgInventarioEntregaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_INV_ENTREGA_LGVi_Document">
+    <wsdl:operation name="executeZmmLgInventarioEntrega">
+      <wsdl:input message="tns:executeZmmLgInventarioEntregaIn_doc" />
+      <wsdl:output message="tns:executeZmmLgInventarioEntregaOut_doc" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

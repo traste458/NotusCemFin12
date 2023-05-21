@@ -1,0 +1,3 @@
+    <%
+		Response.Redirect("Login.aspx")
+	%>

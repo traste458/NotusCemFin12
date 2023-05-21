@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SrdBasedOnShippingAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oEquipment" type="tns:Equipment" />
+            <s:element minOccurs="0" maxOccurs="1" name="dealerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oAddress" type="tns:Address" />
+            <s:element minOccurs="0" maxOccurs="1" name="oAffiliateInformation" type="tns:AffiliateInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Equipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentMake" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentModelNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentSerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderActionId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AddressText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostCenterRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Quarter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetPrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetIntersection" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetIntersectionSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalBuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalBuildingNumberSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApartmentNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalNumOfFloors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Neighborhood" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PoBox" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SocioEconomicalRank" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AffiliateInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Affiliate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Market" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SrdBasedOnShippingAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SrdBasedOnShippingAddressResult" type="tns:ResponseCourierService" />
+            <s:element minOccurs="0" maxOccurs="1" name="oEquipment" type="tns:Equipment" />
+            <s:element minOccurs="0" maxOccurs="1" name="oAddress" type="tns:Address" />
+            <s:element minOccurs="0" maxOccurs="1" name="oAffiliateInformation" type="tns:AffiliateInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseCourierService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="oEquipment" type="tns:Equipment" />
+          <s:element minOccurs="0" maxOccurs="1" name="oDeliveryDateInformation" type="tns:ArrayOfDeliveryDateInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="oStatus" type="tns:Status" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDeliveryDateInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DeliveryDateInformation" nillable="true" type="tns:DeliveryDateInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeliveryDateInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDateFrom" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDateTo" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Status">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusMessage" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="StatusMessage">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="Failure" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SrdBasedOnShippingAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:SrdBasedOnShippingAddress" />
+  </wsdl:message>
+  <wsdl:message name="SrdBasedOnShippingAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:SrdBasedOnShippingAddressResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CourierServiceSoap">
+    <wsdl:operation name="SrdBasedOnShippingAddress">
+      <wsdl:input message="tns:SrdBasedOnShippingAddressSoapIn" />
+      <wsdl:output message="tns:SrdBasedOnShippingAddressSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CourierServiceSoap" type="tns:CourierServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SrdBasedOnShippingAddress">
+      <soap:operation soapAction="http://tempuri.org/SrdBasedOnShippingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CourierServiceSoap12" type="tns:CourierServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SrdBasedOnShippingAddress">
+      <soap12:operation soapAction="http://tempuri.org/SrdBasedOnShippingAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CourierService">
+    <wsdl:port name="CourierServiceSoap" binding="tns:CourierServiceSoap">
+      <soap:address location="http://colbogsa025.logytechmobile.com/notusilsdemo/WebServices/CourierService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CourierServiceSoap12" binding="tns:CourierServiceSoap12">
+      <soap12:address location="http://colbogsa025.logytechmobile.com/notusilsdemo/WebServices/CourierService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

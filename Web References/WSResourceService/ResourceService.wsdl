@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CpeRequestDelivery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oEquipment" type="tns:Equipment" />
+            <s:element minOccurs="0" maxOccurs="1" name="oAffiliateInformation" type="tns:AffiliateInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="oShippingDetails" type="tns:ShippingDetails" />
+            <s:element minOccurs="0" maxOccurs="1" name="dealerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oPayment" type="tns:Payment" />
+            <s:element minOccurs="0" maxOccurs="1" name="contractId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Equipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentMake" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentModelNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentSerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderActionId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AffiliateInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Affiliate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Market" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShippingDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShippingDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactDetails" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentList" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Payment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="paymentMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="amount" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CpeRequestDeliveryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CpeRequestDeliveryResult" type="tns:ResponseResourceService" />
+            <s:element minOccurs="0" maxOccurs="1" name="oEquipment" type="tns:Equipment" />
+            <s:element minOccurs="0" maxOccurs="1" name="oAffiliateInformation" type="tns:AffiliateInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="oShippingDetails" type="tns:ShippingDetails" />
+            <s:element minOccurs="0" maxOccurs="1" name="oPayment" type="tns:Payment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseResourceService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="oStatus" type="tns:Status" />
+          <s:element minOccurs="0" maxOccurs="1" name="oReject" type="tns:Reject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Status">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusMessage" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="StatusMessage">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="Failure" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Reject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="errorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="rejectDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CpeRequestDeliverySoapIn">
+    <wsdl:part name="parameters" element="tns:CpeRequestDelivery" />
+  </wsdl:message>
+  <wsdl:message name="CpeRequestDeliverySoapOut">
+    <wsdl:part name="parameters" element="tns:CpeRequestDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ResourceServiceSoap">
+    <wsdl:operation name="CpeRequestDelivery">
+      <wsdl:input message="tns:CpeRequestDeliverySoapIn" />
+      <wsdl:output message="tns:CpeRequestDeliverySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ResourceServiceSoap" type="tns:ResourceServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CpeRequestDelivery">
+      <soap:operation soapAction="http://tempuri.org/CpeRequestDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ResourceServiceSoap12" type="tns:ResourceServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CpeRequestDelivery">
+      <soap12:operation soapAction="http://tempuri.org/CpeRequestDelivery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResourceService">
+    <wsdl:port name="ResourceServiceSoap" binding="tns:ResourceServiceSoap">
+      <soap:address location="http://colbogsa025.logytechmobile.com/notusilsdemo/WebServices/ResourceService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ResourceServiceSoap12" binding="tns:ResourceServiceSoap12">
+      <soap12:address location="http://colbogsa025.logytechmobile.com/notusilsdemo/WebServices/ResourceService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
